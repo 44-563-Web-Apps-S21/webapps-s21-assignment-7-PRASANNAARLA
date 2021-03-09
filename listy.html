@@ -41,6 +41,7 @@
 
 	<p> Press the button to create an new element of type div and then add it to the container.
 		</p>
+        
 		<button onclick="makeNewDiv()">Add one</button>
 
 
@@ -53,8 +54,40 @@
 		element.className = "listy"
 
 		/* add it to the container */
+		var listyItems = document.getElementsByClassName("listy")
+		var check = 0
+        if(listyItems.length>9){
+
+			for ( let item of listyItems)
+			{
+				console.log(item.innerHTML)
+				if(item.innerHTML === document.getElementById("input").value)
+				{
+					item.remove();
+					console.log("We are getting rid of duplicates.");
+					check=1;
+					break;
+				}
+			}
+			if(check==0) {
+                var itemtoberemoved = getRandomIntInclusive(0, 9);
+				console.log(itemtoberemoved);
+
+				listyItems[itemtoberemoved].remove();
+				console.log("We get rid of the " + itemtoberemoved + " item.");
+				}
+
+		}
+
+
+		/* add it to the container */
 		document.getElementById('target').appendChild(element)
 
 	}
+    function getRandomIntInclusive(min, max) {
+		min = Math.ceil(min);
+		max = Math.floor(max);
+		return Math.floor(Math.random() * (max - min + 1) + min); 
+    }
 </script>
 </html>	 

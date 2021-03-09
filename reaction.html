@@ -18,6 +18,7 @@
 
     <h2>prasanna arla reaction timer</h2>
 
+
     <p id="target">Your time</p>
     <p id="countdown">Count</p>
 
@@ -35,13 +36,21 @@
       console.log("Time : " + myTime);
     }
 
-    function startTime() {
+    function getRandomIntInclusive(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
+      }
 
-      for (var i = 0; i < 4; i++) {
+    function startTime() {
+      var timer = getRandomIntInclusive(2, 10);
+      console.log(timer);
+
+      for (var i = 0; i < timer; i++) {
 
         setTimeout(function (i) {
           document.getElementById("countdown").innerHTML = i
-        }, ((3 - i) * 1000), i)
+        }, ((timer - 1-i) * 1000), i)
 
       }
 
@@ -56,7 +65,7 @@
           document.getElementById("target").innerHTML = "Time was " + elapsedTime;
           
         }
-      }, 3000)
+      }, (timer-1)*1000)
     }
 
   </script>

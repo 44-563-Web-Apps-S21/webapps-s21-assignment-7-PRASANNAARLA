@@ -17,10 +17,10 @@
 
         <h1>Find the Treasure by prasanna arla</h1>
 
-        <p style="background-color: rgb(185, 136, 231); color: rgb(83, 9, 49);">Click on the squares to find the
+        <p style="background-color: rgb(188, 136, 231); color: rgb(9, 83, 55);">Click on the squares to find the
             treasure.</p>
-        <p id="clicks" style="background-color:rgb(55, 223, 223);color: rgb(153, 35, 35);">Number of clicks is zero.</p>
-        <p id="distance" style="background: rgb(181, 195, 221);color: darkmagenta;">Distance is unknown.</p>
+        <p id="clicks" style="background-color:rgb(55, 223, 97);color: rgb(153, 131, 35);">Number of clicks is zero.</p>
+        <p id="distance" style="background: rgb(221, 181, 211);color: rgb(0, 83, 139);">Distance is unknown.</p>
 
     </div>
 
@@ -112,6 +112,22 @@
 
         var clickCount = 0;
         var treasureLocation = 18;
+        var treasureLocation = getRandomIntInclusive(0, 24);
+        console.log(treasureLocation);
+
+        function getRandomIntInclusive(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1) + min); 
+        }
+        function newGame() {
+            var clickCount = 0;
+            var treasureLocation = getRandomIntInclusive(0, 24);
+            console.log(treasureLocation);
+            document.getElementById("clicks").innerHTML = "Number of clicks is " + clickCount + ".";
+
+            document.getElementById("distance").innerHTML = "Distance is unknown.";
+        }
 
         function makeGuess(position) {
 
